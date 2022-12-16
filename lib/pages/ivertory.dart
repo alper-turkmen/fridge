@@ -5,7 +5,7 @@ import '../consts/consts.dart';
 import 'inv2.dart';
 
 class Inventory extends StatefulWidget {
-  Inventory({Key? key}) : super(key: key);
+  Inventory();
 
   @override
   State<Inventory> createState() => _InventoryState();

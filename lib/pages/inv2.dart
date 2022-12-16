@@ -22,7 +22,6 @@ class _HomePageState extends State<HomePage> {
     List<Widget> indicators(imagesLength, currentIndex) {
       return List<Widget>.generate(imagesLength, (index) {
         return Container(
-
           margin: const EdgeInsets.all(3),
           width: 10,
           height: 10,
@@ -40,7 +39,6 @@ class _HomePageState extends State<HomePage> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
           Padding(
             padding: EdgeInsets.symmetric(horizontal: width * 0.05),
             child: Column(
@@ -71,39 +69,42 @@ class _HomePageState extends State<HomePage> {
                             return InkWell(
                               onTap: () {},
                               child: Container(
-
                                 decoration: new BoxDecoration(
                                   image: new DecorationImage(
                                     fit: BoxFit.cover,
-                                    colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.1), BlendMode.dstATop),
+                                    colorFilter: new ColorFilter.mode(
+                                        Colors.black.withOpacity(0.1),
+                                        BlendMode.dstATop),
                                     image: new NetworkImage(
                                       'https://w7.pngwing.com/pngs/673/391/png-transparent-graphy-vegetable-fruit-basket-of-vegetables-natural-foods-leaf-vegetable-food-thumbnail.png',
                                     ),
                                   ),
                                   color: ColorList.secondGreen,
                                   borderRadius: BorderRadius.circular(10),
-
                                 ),
-                                child: Stack(children: [
-
-                                  Positioned( child: Text('Hello, \nWhat would you like to\nprepare today?', style: TextStyle(fontSize: 20),), left: 20, top: 20,),
-                                ],),
+                                child: Stack(
+                                  children: [
+                                    Positioned(
+                                      child: Text(
+                                        'Hello, \nWhat would you like to\nprepare today?',
+                                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                                      ),
+                                      left: 20,
+                                      top: 20,
+                                    ),
+                                  ],
+                                ),
                               ),
                             );
                           }),
                         ),
                       ),
                     ),
-
                   ],
                 ),
                 SizedBox(
                   height: 20,
                 ),
-
-              
-
-
                 GridView.builder(
                   physics: ScrollPhysics(),
                   shrinkWrap: true,
@@ -116,14 +117,12 @@ class _HomePageState extends State<HomePage> {
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
                       decoration: BoxDecoration(
-                        
                         border: Border.all(
-                          color: Colors.grey.shade300 ,
-                          width: 1 ,
+                          color: Colors.grey.shade300,
+                          width: 1,
                         ),
                         borderRadius: BorderRadius.circular(15),
                       ),
-
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
@@ -131,36 +130,31 @@ class _HomePageState extends State<HomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             InkWell(
-                              onTap: () {
-
-                              },
+                              onTap: () {},
                               child: Container(
                                 height: 160,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
                                   child: Image.network(
-                                    "https://toppng.com/uploads/preview/broccoli-11546982769b24nyuwjow.png", fit: BoxFit.fitHeight,
+                                    "https://toppng.com/uploads/preview/broccoli-11546982769b24nyuwjow.png",
+                                    fit: BoxFit.fitHeight,
                                   ),
                                 ),
                               ),
                             ),
                             SizedBox(height: 10),
-
                             Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                Text("Broccoli"),
+                                SizedBox(height: 5,),
                                 Text(
                                   "1 kg left",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w700,
                                       color: ColorList.mainColor),
                                 ),
-
-                                    Text("Broccoli"),
-
-
-
                               ],
                             ),
                           ],
@@ -172,12 +166,9 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   height: 10,
                 ),
-
-
                 SizedBox(
                   height: 10,
                 ),
-
                 SizedBox(
                   height: 10,
                 ),
@@ -213,7 +204,7 @@ class _HomePageState extends State<HomePage> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                         side:
-                        BorderSide(width: 1.0, color: ColorList.mainColor),
+                            BorderSide(width: 1.0, color: ColorList.mainColor),
                       ),
                       onPressed: () {},
                       child: Row(
@@ -226,7 +217,7 @@ class _HomePageState extends State<HomePage> {
                           SizedBox(
                             width: 10,
                           ),
-              Text("Remove")
+                          Text("Remove")
                         ],
                       ),
                       color: Colors.white,
@@ -236,7 +227,6 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   height: 50,
                 ),
-
               ],
             ),
           ),

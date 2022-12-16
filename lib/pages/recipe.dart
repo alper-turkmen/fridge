@@ -113,7 +113,7 @@ class _RecipeState extends State<Recipe> {
                   height: 45,
                 ),
                 Container(
-                  child: const SizedBox(
+                  child:  SizedBox(
                     width: 400.1,
                     height: 50.1,
                     child: customProjectButton(
