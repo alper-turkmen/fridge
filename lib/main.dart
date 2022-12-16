@@ -48,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
             MaterialButton(onPressed: (){
               Navigator.push(
                context,
-                MaterialPageRoute(builder: (context) => const Inventory()),
+                MaterialPageRoute(builder: (context) =>  Inventory()),
               );
             }, child: Text('inventory'),),
             MaterialButton(onPressed: (){
