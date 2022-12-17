@@ -8,7 +8,7 @@ class Dishlist {
       DishModel(dishName: "Steak House", imgUrl: "", calorie: 1000, isEatType: "Normal", material: ['Meat', 'Garlic', 'Onion', 'Thyme']),
       DishModel(dishName: "Vegetarian Fried Vegetables", imgUrl: "", calorie: 400, isEatType: "Vegetarian", material: ['Tomatoes', 'Onion', 'Red Pepper', 'Mushroom', 'Liquid Oil']),
       DishModel(dishName: "Fried Chicken", imgUrl: "", calorie: 400, isEatType: "Normal", material: ['Chicken', 'Olive Oil', 'Red Pepper']),
-      DishModel(dishName: "Mixed Pizza", imgUrl: "", calorie: 400, isEatType: "Normal", material: ['Pizza', 'Sujuk', 'Sausage', 'Tomatoes', 'Red Pepper', 'Cheese', 'Pastry']),
+      DishModel(dishName: "Mixed Pizza", imgUrl: "", calorie: 400, isEatType: "Normal", material: ['Sujuk', 'Sausage', 'Tomatoes', 'Red Pepper', 'Cheese', 'Pastry']),
 
   ];
 }

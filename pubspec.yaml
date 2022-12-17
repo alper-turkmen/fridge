@@ -15,6 +15,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   font_awesome_flutter: ^10.3.0
   flutter_slidable: ^2.0.0
+  dropdown_button2: ^1.9.2
+  bloc: ^7.2.1
+  flutter_bloc: ^7.3.0
+  lottie: ^2.1.0
 
 dev_dependencies:
   flutter_test:

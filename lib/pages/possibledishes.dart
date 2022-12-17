@@ -24,14 +24,26 @@ class _PossibleDishesState extends State<PossibleDishes> {
   List<DishModel> dishes = [];
 
   void checkPossibleDishes() {
+    for (int i = 0; i < 3; i++) {
+      dishes.add(Dishlist.dishes[i]);
+    }
+    setState(() {
+      isLoaded = true;
+    });
+/*
     for (int i = 0; i < Dishlist.dishes.length; i++) {
-      bool isPossible = false;
-      for (int j = 0; j < Dishlist.dishes[i].material.length; j++) {
-        for (int k = 0; k < ItemList.items.length; k++) {
-          if (ItemList.items[k].productName == Dishlist.dishes[i].material[j]) {
+      bool isPossible = true;
+
+      for (int j = 0; j < ItemList.items.length; j++) {
+
+        for (int k = 0; k < Dishlist.dishes[i].material.length; k++) {
+          if (ItemList.items[j].productName == Dishlist.dishes[i].material[k]) {
             print("yes");
+            isPossible = true;
           }else{
             print("no");
+            isPossible = false;
+            break;
           }
         }
       }
@@ -39,11 +51,15 @@ class _PossibleDishesState extends State<PossibleDishes> {
       if (isPossible) {
         dishes.add(Dishlist.dishes[i]);
       }
+
+
     }
     print(dishes);
     setState(() {
       isLoaded = true;
     });
+*/
+
   }
 
   @override
@@ -91,7 +107,6 @@ class _PossibleDishesState extends State<PossibleDishes> {
             ),
             isLoaded
                 ? Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
                         height: 25,

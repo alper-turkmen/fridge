@@ -69,8 +69,8 @@ class _RecipeState extends State<Recipe> {
             ),
             Container(
                 width: 400,
-                height: 200,
-                child: Image.network("https://e7.pngegg.com/pngimages/822/65/png-clipart-pasta-pasta-thumbnail.png")),
+                height: 250,
+                child: Image.network("https://www.freepnglogos.com/uploads/pasta-png/pasta-seasonings-product-poddar-foods-13.png")),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -88,12 +88,12 @@ class _RecipeState extends State<Recipe> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Pişirme Süresi: 18 dk",
+                      "Required time: 18 min",
                       style:
                           Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w400, fontSize: 16),
                     ),
                     Text(
-                      "210 kalori",
+                      "400 cal",
                       style:
                           Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w400, fontSize: 16),
                     ),
@@ -124,7 +124,7 @@ class _RecipeState extends State<Recipe> {
                   height: 25,
                 ),
                 Text(
-                  "Description",
+                  "Instructions",
                   style: Theme.of(context).textTheme.headline6?.copyWith(fontWeight: FontWeight.w600),
                 ),
                 SizedBox(
@@ -135,7 +135,7 @@ class _RecipeState extends State<Recipe> {
                   height: 30,
                 ),
                 Text(
-                  "Related Item",
+                  "Ingredients",
                   style: Theme.of(context).textTheme.headline6?.copyWith(fontWeight: FontWeight.w600),
                 ),
                 SizedBox(
@@ -173,7 +173,7 @@ class _RecipeState extends State<Recipe> {
                     height: 50.1,
                     child: customProjectButton(
                       nextPageName: Inventory(),
-                      buttonText: "Add To Cart",
+                      buttonText: "Prepare",
                     ),
                   ),
                 ),

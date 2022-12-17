@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:fridge/pages/additem.dart';
+import 'package:fridge/pages/possibledishes.dart';
 
 import '../consts/consts.dart';
 import 'inv2.dart';
@@ -40,21 +42,8 @@ class _InventoryState extends State<Inventory> {
       key: _scaffoldKey,
 
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-          automaticallyImplyLeading: false,
-          elevation: 0,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              InkWell(
-                onTap: () => _scaffoldKey.currentState!.openDrawer(),
-                child: Icon(Icons.menu)
-              ),
 
 
-            ],
-          ),
-          backgroundColor: Colors.white),
       backgroundColor: Colors.white,
       floatingActionButton: Container(
         decoration: BoxDecoration(color: Colors.white, shape: BoxShape.circle),
@@ -65,8 +54,8 @@ class _InventoryState extends State<Inventory> {
             backgroundColor: ColorList.mainColor,
             onPressed: () {
               setState(() {
-
-                selectedPage = 5;
+                selectedPage = 1;
+               selectedWidget = AddItems();
               });
             },
             child: Icon(Icons.add)
@@ -86,6 +75,7 @@ class _InventoryState extends State<Inventory> {
               onTap: () {
                 setState(() {
                   selectedPage = 0;
+                  selectedWidget = HomePage();
                 });
               },
               child: Padding(
@@ -123,7 +113,8 @@ class _InventoryState extends State<Inventory> {
               onTap: () {
                 setState(() {
 
-                  selectedPage = 3;
+                  selectedPage = 2;
+                  selectedWidget = PossibleDishes();
                 });
               },
               child: Padding(
@@ -134,10 +125,10 @@ class _InventoryState extends State<Inventory> {
                     Icon(
                       Icons.bookmark,
                       color:
-                      selectedPage == 3 ? ColorList.mainColor : Colors.grey,
+                      selectedPage == 2 ? ColorList.mainColor : Colors.grey,
                     ),
 
-                    selectedPage == 3
+                    selectedPage == 2
                         ? Text(
                       "Recipes",
                       style: TextStyle(
