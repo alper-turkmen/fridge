@@ -2,6 +2,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:fridge/consts/itemlist.dart';
 
 import '../consts/consts.dart';
 
@@ -108,7 +109,8 @@ class _HomePageState extends State<HomePage> {
                 GridView.builder(
                   physics: ScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: 6,
+                  itemCount: ItemList.items.length,
+
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       childAspectRatio: 1 / 1.4,
@@ -133,13 +135,14 @@ class _HomePageState extends State<HomePage> {
                               onTap: () {},
                               child: Container(
                                 height: 160,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: Image.network(
-                                    "https://toppng.com/uploads/preview/broccoli-11546982769b24nyuwjow.png",
-                                    fit: BoxFit.fitHeight,
-                                  ),
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: NetworkImage(
+                                       ItemList.items[index].imgUrl,
+                                    ),
+                                  )
                                 ),
+
                               ),
                             ),
                             SizedBox(height: 10),
@@ -147,10 +150,10 @@ class _HomePageState extends State<HomePage> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Broccoli"),
+                                Text(ItemList.items[index].productName),
                                 SizedBox(height: 5,),
                                 Text(
-                                  "1 kg left",
+                                  "${ItemList.items[index].amount} ${ItemList.items[index].unit} left",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w700,
                                       color: ColorList.mainColor),
