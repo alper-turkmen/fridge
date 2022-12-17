@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fridge/pages/cart.dart';
 import 'package:fridge/pages/ivertory.dart';
+import 'package:fridge/pages/possibledishes.dart';
 import 'package:fridge/pages/recipe.dart';
 
 void main() {
@@ -63,6 +64,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 MaterialPageRoute(builder: (context) => const Recipe()),
               );
             }, child: Text('recipe'),),
+            MaterialButton(onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const PossibleDishes()),
+              );
+            }, child: Text('possible dishes'),),
           ],
         ),
       ),

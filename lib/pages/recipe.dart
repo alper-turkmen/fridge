@@ -82,7 +82,7 @@ class _RecipeState extends State<Recipe> {
                   style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.w600),
                 ),
                 SizedBox(
-                  height: 15,
+                  height: 5,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -99,38 +99,47 @@ class _RecipeState extends State<Recipe> {
                     ),
                     Row(
                       children: [
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(Icons.remove_circle),
-                          color: Colors.red,
+                        InkWell(
+                          onTap: () {},
+                          child: Icon(Icons.remove_circle,  color: Colors.red,),
+
                         ),
+                        SizedBox(width: 5,),
                         Text("1"),
-                        Text("P"),
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.add_circle,
-                            color: Colors.green,
-                          ),
-                        )
+                        Text(" P"),SizedBox(width: 5,),
+                        InkWell(
+                          onTap: () {},
+                          child: Icon(
+                          Icons.add_circle,
+                          color: Colors.green,
+                        ),
+
+                        ),
+
                       ],
                     )
                   ],
+                ),
+                SizedBox(
+                  height: 25,
                 ),
                 Text(
                   "Description",
                   style: Theme.of(context).textTheme.headline6?.copyWith(fontWeight: FontWeight.w600),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 10,
                 ),
                 Text(textData),
                 SizedBox(
-                  height: 15,
+                  height: 30,
                 ),
                 Text(
                   "Related Item",
                   style: Theme.of(context).textTheme.headline6?.copyWith(fontWeight: FontWeight.w600),
+                ),
+                SizedBox(
+                  height: 10,
                 ),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -156,7 +165,7 @@ class _RecipeState extends State<Recipe> {
                   ),
                 ),
                 SizedBox(
-                  height: 25,
+                  height: 40,
                 ),
                 Container(
                   child:  SizedBox(
@@ -192,13 +201,23 @@ class FoodCard extends StatelessWidget {
   final String imgUrl;
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        children: [
-          Container(height: 75, width: 75, child: Image.network(imgUrl)),
-          Text(productName),
-          Text(amount),
-        ],
+    return Padding(
+      padding: const EdgeInsets.only(right: 10.0),
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.grey.shade300,
+            width: 2,
+          ),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Column(
+          children: [
+            Container(height: 75, width: 75, child: Image.network(imgUrl)),
+            Text(productName),
+            Text(amount),
+          ],
+        ),
       ),
     );
   }

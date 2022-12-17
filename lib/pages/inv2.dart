@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fridge/consts/itemlist.dart';
+import 'package:fridge/models/product_model.dart';
 
 import '../consts/consts.dart';
 
@@ -15,25 +16,43 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
-  Widget build(BuildContext context) {
-    final double overflowWidth = MediaQuery.of(context).size.width;
 
+  bool isLoaded = false;
+
+  void initState() {
+    super.initState();
+    setTab("All");
+    setState(() {
+      isLoaded = true;
+    });
+  }
+
+  String currentTab = "All";
+  List items = [];
+
+  void setTab(String tab){
+    currentTab = tab;
+    List<ProductModel> temp = [];
+
+    for(int i = 0; i < ItemList.items.length; i++){
+      if(currentTab == "All"){
+          temp.add(ItemList.items[i]);
+      }else{
+        if(ItemList.items[i].category == tab){
+          temp.add(ItemList.items[i]);
+        }
+      }
+    }
+    setState(() {
+      items = temp;
+    });
+
+  }
+
+  Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    List<Widget> indicators(imagesLength, currentIndex) {
-      return List<Widget>.generate(imagesLength, (index) {
-        return Container(
-          margin: const EdgeInsets.all(3),
-          width: 10,
-          height: 10,
-          decoration: BoxDecoration(
-              color: currentIndex == index
-                  ? ColorList.mainColor
-                  : ColorList.secondColor,
-              shape: BoxShape.circle),
-        );
-      });
-    }
+
 
     return SingleChildScrollView(
       child: Column(
@@ -106,11 +125,27 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   height: 20,
                 ),
-                GridView.builder(
+
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(children: [
+                  CategoryCard(text: "All", callback: () => setTab("All")),
+                  CategoryCard(text: "Vegetables", callback: () => setTab("Vegetables")),
+                  CategoryCard(text: "Dairy", callback: () => setTab("Dairy")),
+                  CategoryCard(text: "Meat", callback: () => setTab("Meat")),
+                  CategoryCard(text: "Oil", callback: () => setTab("Oil")),
+                  CategoryCard(text: "Spice", callback: () => setTab("Spice")),
+                  CategoryCard(text: "Legume", callback: () => setTab("Legume")),
+                  CategoryCard(text: "Other", callback: () => setTab("Other")),
+
+                ],),),
+                SizedBox(
+                  height: 20,
+                ),
+               isLoaded ? GridView.builder(
                   physics: ScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: ItemList.items.length,
-
+                  itemCount: items.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       childAspectRatio: 1 / 1.4,
@@ -136,11 +171,11 @@ class _HomePageState extends State<HomePage> {
                               child: Container(
                                 height: 160,
                                 decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: NetworkImage(
-                                       ItemList.items[index].imgUrl,
-                                    ),
-                                  )
+                                    image: DecorationImage(
+                                      image: NetworkImage(
+                                        items[index].imgUrl,
+                                      ),
+                                    )
                                 ),
 
                               ),
@@ -150,10 +185,10 @@ class _HomePageState extends State<HomePage> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(ItemList.items[index].productName),
+                                Text(items[index].productName),
                                 SizedBox(height: 5,),
                                 Text(
-                                  "${ItemList.items[index].amount} ${ItemList.items[index].unit} left",
+                                  "${items[index].amount} ${items[index].unit} left",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w700,
                                       color: ColorList.mainColor),
@@ -165,7 +200,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     );
                   },
-                ),
+                ) : CircularProgressIndicator(),
                 SizedBox(
                   height: 10,
                 ),
@@ -234,6 +269,39 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+
+class CategoryCard extends StatelessWidget {
+  CategoryCard({required this.text, required this.callback});
+  String text;
+  void Function() callback;
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: callback,
+      child: Padding(
+        padding: EdgeInsets.only(right: 3),
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Colors.grey.shade300,
+              width: 2,
+            ),
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Column(
+            children: [
+              Container(  child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Center(child: Text(text)),
+              ),),
+            ],
+          ),
+        ),
       ),
     );
   }

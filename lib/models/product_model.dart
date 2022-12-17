@@ -4,6 +4,7 @@ class ProductModel {
   final int isEatType;
   final double amount;
   final String unit;
+  final String category;
   ProductModel({
     required this.productName,
     required this.imgUrl,
@@ -11,5 +12,6 @@ class ProductModel {
     required this.isEatType,
     required this.amount,
     required this.unit,
+    required this.category
   });
 }
