@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fridge/consts/consts.dart';
+import 'package:fridge/widgets/logintextfield_widget.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -12,6 +13,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
+    final myController1 = TextEditingController();
+    final myController2 = TextEditingController();
     return Scaffold(
       backgroundColor: ColorList.secondGreen,
       body: SafeArea(
@@ -31,6 +34,9 @@ class _LoginPageState extends State<LoginPage> {
               Text(
                 "Login using social networks",
               ),
+              SizedBox(
+                height: 10,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -47,71 +53,54 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                 ],
               ),
+              SizedBox(
+                height: 10,
+              ),
               Center(
                 child: Text(
                   "or",
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 40.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        width: 3,
-                        color: ColorList.secondColor,
-                      ), //<-- SEE HERE
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    hintText: 'Username',
-                  ),
-                ),
+              SizedBox(
+                height: 10,
+              ),
+              LoginTextFieldWidget(
+                text: "Username",
+                controller: myController1,
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 40.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        // width: 3,
-                        color: ColorList.secondColor,
-                      ),
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    hintText: 'Username',
-                  ),
-                ),
+              LoginTextFieldWidget(
+                text: "Password",
+                controller: myController2,
               ),
-              // Radio(
-              //   value: "rememberme",
-              //   groupValue: "group value",
-              //   onChanged: (value) {
-              //     setState(
-              //       () {
-              //         print(value);
-
-              //       },
-              //     );
-              //   },
-              // ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 32.0),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Checkbox(
-                      value: false,
-                      onChanged: (bool? value) {
-                        setState(
-                          () {
-                            value = value!;
+                    Row(
+                      children: [
+                        Checkbox(
+                          value: false,
+                          onChanged: (bool? value) {
+                            setState(
+                              () {
+                                value = value!;
+                              },
+                            );
                           },
-                        );
-                      },
+                        ),
+                        Text("Remember Me")
+                      ],
                     ),
-                    Text("Remember Me")
+                    InkWell(
+                      onTap: () {},
+                      child: Text(
+                        "Kayıt Ol",
+                      ),
+                    ),
                   ],
                 ),
               ),
