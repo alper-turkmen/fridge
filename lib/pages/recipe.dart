@@ -24,66 +24,102 @@ class _RecipeState extends State<Recipe> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.white,
-                  ),
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.chevron_left,
-                      color: Colors.black,
-                    ),
-                  ),
+                Material(
+                  borderRadius: BorderRadius.circular(40),
+                  color: Colors.white,
+                  child: InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(
+                        Icons.chevron_left,
+                        size: 36,
+                      )),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.white,
-                  ),
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.search,
-                      color: Colors.black,
-                    ),
-                  ),
-                )
+                // Container(
+                //   decoration: BoxDecoration(
+                //     shape: BoxShape.circle,
+                //     color: Colors.white,
+                //   ),
+                //   child: IconButton(
+                //     onPressed: () {},
+                //     icon: Icon(
+                //       Icons.chevron_left,
+                //       color: Colors.black,
+                //     ),
+                //   ),
+                // ),
+                Material(
+                  borderRadius: BorderRadius.circular(40),
+                  color: Colors.white,
+                  child: InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(6.0),
+                        child: Icon(
+                          Icons.search,
+                          size: 26,
+                        ),
+                      )),
+                ),
                 // IconButton(onPressed: (){}, icon: Icon(Icons.chevron_left_outlined,color: Colors.black,))
               ],
             ),
-            Container(width: 500, height: 250, child: Image.network("https://i.hizliresim.com/bruayqa.png")),
+            Container(
+                width: 400,
+                height: 200,
+                child: Image.network("https://e7.pngegg.com/pngimages/822/65/png-clipart-pasta-pasta-thumbnail.png")),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 20,
+                  height: 25,
                 ),
                 Text(
-                  "Green Broccoli",
-                  style: Theme.of(context).textTheme.headline5,
+                  "Pasta",
+                  style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.w600),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 15,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Pişirme Süresi: 18 dk  "),
-                    Text("210 kalori"),
+                    Text(
+                      "Pişirme Süresi: 18 dk",
+                      style:
+                          Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w400, fontSize: 16),
+                    ),
+                    Text(
+                      "210 kalori",
+                      style:
+                          Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w400, fontSize: 16),
+                    ),
                     Row(
                       children: [
-                        IconButton(onPressed: () {}, icon: Icon(Icons.pause_circle_sharp)),
-                        Text("1Kg"),
-                        IconButton(onPressed: () {}, icon: Icon(Icons.pause_circle_sharp)),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.remove_circle),
+                          color: Colors.red,
+                        ),
+                        Text("1"),
+                        Text("P"),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.add_circle,
+                            color: Colors.green,
+                          ),
+                        )
                       ],
                     )
                   ],
                 ),
                 Text(
                   "Description",
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.headline6?.copyWith(fontWeight: FontWeight.w600),
                 ),
                 SizedBox(
                   height: 5,
@@ -94,23 +130,33 @@ class _RecipeState extends State<Recipe> {
                 ),
                 Text(
                   "Related Item",
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.headline6?.copyWith(fontWeight: FontWeight.w600),
                 ),
-                Row(
-                  children: [
-                    Card(
-                      child: Column(
-                        children: [
-                          Container(
-                              height: 50, width: 50, child: Image.network("https://i.hizliresim.com/bruayqa.png")),
-                          Text("domates")
-                        ],
-                      ),
-                    )
-                  ],
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      FoodCard(
+                          unit: "adet",
+                          imgUrl: "https://i.hizliresim.com/bruayqa.png",
+                          productName: "Tomatos",
+                          amount: "8 tane"),
+                      FoodCard(
+                          unit: "adet",
+                          imgUrl: "https://img.freepik.com/premium-vector/potatoes-realistic_1268-12403.jpg",
+                          productName: "Patato",
+                          amount: "6 tane"),
+                      FoodCard(
+                          unit: "adet",
+                          imgUrl: "https://www.pngkit.com/png/detail/43-430124_pasta-png-transparent-pasta-png.png",
+                          productName: "Pasta",
+                          amount: "1 Paket"),
+                    ],
+                  ),
                 ),
                 SizedBox(
-                  height: 45,
+                  height: 25,
                 ),
                 Container(
                   child:  SizedBox(
@@ -127,6 +173,33 @@ class _RecipeState extends State<Recipe> {
           ],
         ),
       )),
+    );
+  }
+}
+
+class FoodCard extends StatelessWidget {
+  const FoodCard({
+    Key? key,
+    required this.productName,
+    required this.amount,
+    required this.imgUrl,
+    required this.unit,
+  }) : super(key: key);
+  final String productName;
+  final String amount;
+  final String unit;
+
+  final String imgUrl;
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Column(
+        children: [
+          Container(height: 75, width: 75, child: Image.network(imgUrl)),
+          Text(productName),
+          Text(amount),
+        ],
+      ),
     );
   }
 }
