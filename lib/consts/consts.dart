@@ -20,7 +20,7 @@ class SharedList {
       socialMediaName: "Apple",
       buttonIcon: FaIcon(
         FontAwesomeIcons.apple,
-        color: ColorList.blackColor,
+        color: Colors.black,
       ),
     ),
     SocialMediaIconModel(
@@ -34,9 +34,7 @@ class SharedList {
       socialMediaName: "Google",
       buttonIcon: FaIcon(
         FontAwesomeIcons.google,
-        color: Color(
-          0xFFFFFFFF,
-        ),
+        color: ColorList.googleColor,
       ),
     ),
   ];

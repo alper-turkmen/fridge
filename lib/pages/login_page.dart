@@ -25,6 +25,9 @@ class _LoginPageState extends State<LoginPage> {
                 width: 150,
                 child: Placeholder(),
               ),
+              SizedBox(
+                height: 20,
+              ),
               Text(
                 "Login using social networks",
               ),
