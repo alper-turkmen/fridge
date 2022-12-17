@@ -12,7 +12,7 @@ class OnboardingContents {
 
 List<OnboardingContents> contents = [
   OnboardingContents(
-    title: "Hi, Welcome to Tidily",
+    title: "Hi, Welcome to Fridge",
     image: "https://i.hizliresim.com/jwzo2zo.png",
     desc: "Are you ready to do something for a better kitchen life?",
   ),

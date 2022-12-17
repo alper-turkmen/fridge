@@ -149,7 +149,7 @@ class _AddItemsState extends State<AddItems> {
     ProductModel(
         productName: "Yogurt",
         imgUrl:
-            "https://e7.pngegg.com/pngimages/557/35/png-clipart-bowl-of-white-cream-ice-cream-frozen-yogurt-milk-yoghurt-breakfast-yogurt-cream-food.png",
+            "https://i.hizliresim.com/1ce8lx8.png",
         calori: 100,
         isEatType: 0,
         amount: 1000,

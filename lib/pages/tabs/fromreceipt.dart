@@ -140,7 +140,7 @@ class _FromReceiptState extends State<FromReceipt> {
     ProductModel(
         productName: "Yogurt",
         imgUrl:
-            "https://e7.pngegg.com/pngimages/557/35/png-clipart-bowl-of-white-cream-ice-cream-frozen-yogurt-milk-yoghurt-breakfast-yogurt-cream-food.png",
+            "https://toppng.com/uploads/preview/yogurt-dish-11538606117g359hplbdy.png",
         calori: 100,
         isEatType: 0,
         amount: 1000,
@@ -201,9 +201,9 @@ class _FromReceiptState extends State<FromReceipt> {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Center(child: Image.asset("assets/cam.jpg", width: MediaQuery.of(context).size.width * .8,)),
-
+        Center(child: Image.asset("assets/cam1.jpg")),
         ],
     );
   }

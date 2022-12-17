@@ -84,7 +84,7 @@ class _InventoryState extends State<Inventory> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(
-                      Icons.list,
+                      Icons.kitchen,
                       color:
                       selectedPage == 0 ? ColorList.mainColor : Colors.grey,
                     ),
@@ -122,8 +122,8 @@ class _InventoryState extends State<Inventory> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(
-                      Icons.bookmark,
+                    FaIcon(
+                      FontAwesomeIcons.solidBookmark,
                       color:
                       selectedPage == 2 ? ColorList.mainColor : Colors.grey,
                     ),

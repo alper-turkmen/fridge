@@ -129,11 +129,11 @@ class _PossibleDishesState extends State<PossibleDishes> {
                           itemCount: dishes.length,
                           itemBuilder: (BuildContext context, int index) {
                             return DishCard(
+                                recipe: dishes[index].recipe,
                                 unit: "adet",
-                                imgUrl:
-                                    "https://www.freepnglogos.com/uploads/pasta-png/pasta-seasonings-product-poddar-foods-13.png",
+                                imgUrl:dishes[index].imgUrl,
                                 dishName: dishes[index].dishName,
-                                amount: "2 portion");
+                                amount: dishes[index].portion);
                           }),
                       SizedBox(
                         height: 15,
@@ -164,12 +164,14 @@ class _PossibleDishesState extends State<PossibleDishes> {
 class DishCard extends StatelessWidget {
   const DishCard({
     Key? key,
+    required this.recipe,
     required this.dishName,
     required this.amount,
     required this.imgUrl,
     required this.unit,
   }) : super(key: key);
   final String dishName;
+  final String recipe;
   final String amount;
   final String unit;
 
@@ -180,7 +182,7 @@ class DishCard extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const Recipe()),
+          MaterialPageRoute(builder: (context) =>  Recipe(name: dishName, recipe: recipe, url:imgUrl)),
         );
       },
       child: Padding(

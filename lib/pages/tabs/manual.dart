@@ -141,7 +141,7 @@ class _ManualState extends State<Manual> {
     ProductModel(
         productName: "Yogurt",
         imgUrl:
-            "https://e7.pngegg.com/pngimages/557/35/png-clipart-bowl-of-white-cream-ice-cream-frozen-yogurt-milk-yoghurt-breakfast-yogurt-cream-food.png",
+            "https://i.hizliresim.com/1ce8lx8.png",
         calori: 100,
         isEatType: 0,
         amount: 1000,
@@ -254,13 +254,6 @@ class _ManualState extends State<Manual> {
           },
           onChanged: (value) {
             selectedValue = value;
-            for (int i = 0; i < newProducts.length; i++) {
-              if (newProducts[i].productName == selectedValue) {
-                BlocProvider.of<FridgeBloc>(context)
-                    .firstItems
-                    .insert(0, newProducts[i]);
-              }
-            }
           },
           onSaved: (value) {},
         ),
@@ -274,7 +267,16 @@ class _ManualState extends State<Manual> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              onPressed: () {},
+              onPressed: () {
+                for (int i = 0; i < newProducts.length; i++) {
+                  if (newProducts[i].productName == selectedValue) {
+                    BlocProvider.of<FridgeBloc>(context)
+                        .firstItems
+                        .insert(0, newProducts[i]);
+                  }
+                }
+                openAlertBox();
+              },
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [

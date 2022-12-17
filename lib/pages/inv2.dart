@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.white,
                         ),
                       )),
-                  Center(child: Text('Fridge')),
+                  Center(child: Text('Fridge', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),)),
                   Material(
                     borderRadius: BorderRadius.circular(40),
                     color: Colors.white,
@@ -282,71 +282,10 @@ class _HomePageState extends State<HomePage> {
                     height: 10,
                   ),
 
-                  Row(
-                    children: [
-                      /*
-                      MaterialButton(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        onPressed: () {},
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            FaIcon(
-                              FontAwesomeIcons.add,
-                              color: Colors.white,
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              "Add to Cart",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ],
-                        ),
-                        color: ColorList.mainColor,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
 
-                   */
-                      MaterialButton(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          side: BorderSide(
-                              width: 1.0, color: ColorList.mainColor),
-                        ),
-                        onPressed: () {},
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            FaIcon(
-                              FontAwesomeIcons.trash,
-                              color: ColorList.mainColor,
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text("Remove")
-                          ],
-                        ),
-                        color: Colors.white,
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+  ]),
+
+        )])));
   }
 }
 

@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:fridge/pages/ivertory.dart';
 
 class Recipe extends StatefulWidget {
-  const Recipe({Key? key}) : super(key: key);
+   Recipe({@required this.name, @required this.recipe, @required this.url});
+
+  String? name;
+  String? recipe;
+  String? url;
 
   @override
   State<Recipe> createState() => _RecipeState();
@@ -70,7 +74,7 @@ class _RecipeState extends State<Recipe> {
             Container(
                 width: 400,
                 height: 250,
-                child: Image.network("https://www.freepnglogos.com/uploads/pasta-png/pasta-seasonings-product-poddar-foods-13.png")),
+                child: Image.network(widget.url!)),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -78,7 +82,7 @@ class _RecipeState extends State<Recipe> {
                   height: 25,
                 ),
                 Text(
-                  "Pasta",
+                  widget.name!,
                   style: Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.w600),
                 ),
                 SizedBox(
@@ -124,13 +128,11 @@ class _RecipeState extends State<Recipe> {
                   height: 25,
                 ),
                 Text(
-                  "Instructions",
-                  style: Theme.of(context).textTheme.headline6?.copyWith(fontWeight: FontWeight.w600),
+                  widget.recipe!,
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                Text(textData),
                 SizedBox(
                   height: 30,
                 ),
@@ -147,6 +149,7 @@ class _RecipeState extends State<Recipe> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       FoodCard(
+
                           unit: "adet",
                           imgUrl: "https://i.hizliresim.com/bruayqa.png",
                           productName: "Tomatos",
