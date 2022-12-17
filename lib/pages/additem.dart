@@ -243,6 +243,61 @@ class _AddItemsState extends State<AddItems> {
                       SizedBox(
                         height: 25,
                       ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          MaterialButton(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            onPressed: () {
+                              openAlertBox();
+                            },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                FaIcon(
+                                  FontAwesomeIcons.add,
+                                  color: Colors.white,
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  "Add to Fridge",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ],
+                            ),
+                            color: ColorList.mainColor,
+                          ),
+                          MaterialButton(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            onPressed: () {
+                              openAlertBox();
+                            },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                FaIcon(
+                                  FontAwesomeIcons.add,
+                                  color: Colors.white,
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  "Add to Fridge",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ],
+                            ),
+                            color: ColorList.mainColor,
+                          ),
+                        ],
+                      ),
                       Text(
                         "Add to Fridge or Pantry",
                         style: Theme.of(context)

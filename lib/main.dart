@@ -6,17 +6,7 @@ import 'package:fridge/pages/ivertory.dart';
 import 'package:fridge/pages/login_page.dart';
 import 'package:fridge/pages/possibledishes.dart';
 import 'package:fridge/pages/recipe.dart';
-<<<<<<< Updated upstream
 import 'package:flutter/services.dart';
-
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]).then((value) => runApp(const MyApp()));
-  // runApp(const MyApp());
-=======
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fridge/splash/splash.dart';
 
@@ -27,7 +17,6 @@ void main() {
           GoFridge(),
         ),
       child: const MyApp()));
->>>>>>> Stashed changes
 }
 
 class MyApp extends StatelessWidget {
@@ -37,24 +26,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-<<<<<<< Updated upstream
       debugShowCheckedModeBanner: false,
       title: 'Fridge App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(
-        title: 'Fridge App',
-      ),
-=======
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
       theme: ThemeData(
 
         primarySwatch: Colors.green,
       ),
       home: const SplashScreen(),
->>>>>>> Stashed changes
     );
   }
 }
