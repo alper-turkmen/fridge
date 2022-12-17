@@ -64,7 +64,7 @@ class _CartState extends State<Cart> {
                   ),
                 ],
               ),
-              child: const Card(
+              child: Card(
                 child: ListTile(
                   contentPadding: EdgeInsets.symmetric(
                     horizontal: 16,
@@ -73,6 +73,15 @@ class _CartState extends State<Cart> {
                   leading: FlutterLogo(),
                   title: Text(
                     "Flutter",
+                  ),
+                  trailing: Row(
+                    children: [
+                      IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.add_circle_outline_outlined,
+                          ))
+                    ],
                   ),
                 ),
               ),
