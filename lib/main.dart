@@ -4,9 +4,15 @@ import 'package:fridge/pages/ivertory.dart';
 import 'package:fridge/pages/login_page.dart';
 import 'package:fridge/pages/possibledishes.dart';
 import 'package:fridge/pages/recipe.dart';
+import 'package:flutter/services.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]).then((value) => runApp(const MyApp()));
+  // runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +24,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -35,8 +40,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,40 +50,56 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            MaterialButton(onPressed: (){
-              Navigator.push(
-               context,
-                MaterialPageRoute(builder: (context) =>  Inventory()),
-              );
-            }, child: Text('inventory'),),
-            MaterialButton(onPressed: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Cart()),
-              );
-            }, child: Text('cart'),),
-            MaterialButton(onPressed: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Recipe()),
-              );
-            }, child: Text('recipe'),),
-            MaterialButton(onPressed: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const PossibleDishes()),
-              );
-            }, child: Text('possible dishes'),),
-            MaterialButton(onPressed: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const LoginPage()),
-              );
-            }, child: Text('Login Page'),),
+            MaterialButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Inventory()),
+                );
+              },
+              child: Text('inventory'),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Cart()),
+                );
+              },
+              child: Text('cart'),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Recipe()),
+                );
+              },
+              child: Text('recipe'),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const PossibleDishes()),
+                );
+              },
+              child: Text('possible dishes'),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
+                );
+              },
+              child: Text('Login Page'),
+            ),
           ],
         ),
       ),
-    // This trailing comma makes auto-formatting nicer for build methods.
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
